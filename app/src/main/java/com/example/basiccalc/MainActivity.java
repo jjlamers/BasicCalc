@@ -26,17 +26,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void additionClick(View view) {
-        int sum;
+        float sum;
 
         EditText firstNumText = (EditText) findViewById(R.id.firstNum);
         EditText secondNumText = (EditText) findViewById(R.id.secondNum);
 
-        sum = Integer.parseInt(firstNumText.getText().toString()) + Integer.parseInt(secondNumText.getText().toString());
+        sum = Integer.parseInt(firstNumText.getText().toString()) + (float) Integer.parseInt(secondNumText.getText().toString());
 
         goToActivity2(sum);
     }
 
-    public void goToActivity2(int answer) {
+    public void subtractionClick(View view) {
+        float diff;
+
+        EditText firstNumText = (EditText) findViewById(R.id.firstNum);
+        EditText secondNumText = (EditText) findViewById(R.id.secondNum);
+
+        diff = Integer.parseInt(firstNumText.getText().toString()) - (float) Integer.parseInt(secondNumText.getText().toString());
+
+        goToActivity2(diff);
+    }
+
+    public void multiplyClick(View view) {
+        float product;
+
+        EditText firstNumText = (EditText) findViewById(R.id.firstNum);
+        EditText secondNumText = (EditText) findViewById(R.id.secondNum);
+
+        product = Integer.parseInt(firstNumText.getText().toString()) * (float) Integer.parseInt(secondNumText.getText().toString());
+
+        goToActivity2(product);
+    }
+
+    public void divideClick(View view) {
+        float Quotient;
+
+        EditText firstNumText = (EditText) findViewById(R.id.firstNum);
+        EditText secondNumText = (EditText) findViewById(R.id.secondNum);
+
+        Quotient = Integer.parseInt(firstNumText.getText().toString()) / (float) Integer.parseInt(secondNumText.getText().toString());
+
+        goToActivity2(Quotient);
+    }
+
+    public void goToActivity2(float answer) {
         Intent intent = new Intent(this,MainActivity2.class);
         intent.putExtra("message",String.valueOf(answer));
         startActivity(intent);
